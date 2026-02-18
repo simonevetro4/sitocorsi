@@ -1,0 +1,93 @@
+:root {
+    --bg: #05070a;
+    --surface: #0f121a;
+    --accent: #00f3ff;
+    --accent-vibe: #bc13fe;
+    --text: #ffffff;
+    --text-dim: #94a3b8;
+    --low-pc: #4ade80; /* Verde per PC leggeri */
+    --high-pc: #f87171; /* Rosso per PC potenti */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+.overlay-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+header { padding: 50px 20px; text-align: center; }
+
+h1 { font-size: 3rem; font-weight: 900; line-height: 1; }
+.highlight { background: linear-gradient(90deg, var(--accent), var(--accent-vibe)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.filter-nav { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.filter-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Questa è la classe che mancava per far vedere il tasto cliccato */
+.filter-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 0 15px var(--accent);
+    border-color: var(--accent);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+.pc-requirements {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.3);
+}
+
+.req-low { color: var(--low-pc); border-left: 3px solid var(--low-pc); }
+.req-high { color: var(--high-pc); border-left: 3px solid var(--high-pc); }
+
+.btn-go {
+    display: block;
+    margin-top: 20px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-vibe));
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}

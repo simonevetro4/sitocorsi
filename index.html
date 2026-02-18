@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDev Free Hub | Innovazione & Risorse</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay-grid"></div>
+
+    <header>
+        <div class="logo">GAMEDEV<span>FREE</span>HUB</div>
+        <h1>L'Accademia per <br><span class="highlight">Creatori di Giochi</span></h1>
+        
+       
+
+        <nav class="filter-nav">
+            <button class="filter-btn active" onclick="filterCourses('tutti', this)">Tutti</button>
+            <button class="filter-btn" onclick="filterCourses('unity', this)">Unity</button>
+            <button class="filter-btn" onclick="filterCourses('unreal', this)">Unreal Engine</button>
+            <button class="filter-btn" onclick="filterCourses('godot', this)">Godot</button>
+            <button class="filter-btn" onclick="filterCourses('c#', this)">C#</button>
+            <button class="filter-btn" onclick="filterCourses('c++', this)">C++</button>
+            
+        </nav>
+    </header>
+
+    <main id="course-container" class="grid">
+        </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
