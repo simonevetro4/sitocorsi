@@ -1,48 +1,100 @@
 const courses = [
+    // --- UNITY ---
     {
         title: "Unity Essentials Pathway",
         engine: "unity",
-        desc: "Il percorso fondamentale per capire come muoversi dentro Unity.",
+        desc: "Il percorso ufficiale Unity per dominare l'interfaccia e i concetti base.",
         link: "https://learn.unity.com/pathway/unity-essentials",
-        review: "Obbligatorio per non sentirsi persi tra i menu.",
+        review: "Indispensabile per chi apre il software per la prima volta.",
         requirements: "PC Medio (8GB RAM, Scheda video integrata OK)",
         pcLevel: "low"
     },
     {
         title: "Unity Junior Programmer",
         engine: "unity",
-        desc: "Dall'inizio alla fine: il percorso per imparare C# seriamente.",
+        desc: "Percorso intensivo per imparare a scriptare in C# all'interno di Unity.",
         link: "https://learn.unity.com/pathway/junior-programmer",
-        review: "Se lo finisci, sai programmare un gioco.",
+        review: "Il miglior corso gratuito per diventare programmatori di giochi.",
         requirements: "PC Medio (8GB RAM, i5 o superiore)",
         pcLevel: "low"
     },
     {
-    title: "Unreal Engine 5 Beginner Tutorial - Unreal Sensei",
-    engine: "unreal",
-    desc: "Un corso monumentale di 5 ore. Include illuminazione Lumen, Nanite, scultura del terreno e basi di Blueprint.",
-    link: "https://www.youtube.com/watch?v=k-zMkzmduqI",
-    review: "Il miglior punto di partenza per Unreal. Spiegazioni chiarissime e risultati visivi da tripla A.",
-    requirements: "PC Potente (Consigliata GPU dedicata RTX)",
-    pcLevel: "high"
-},
-{
-    title: "Unreal Engine 5 Beginner Tutorial - Unreal Sensei",
-    engine: "unreal",
-    desc: "Un corso monumentale di 5 ore. Include illuminazione Lumen, Nanite, scultura del terreno e basi di Blueprint.",
-    link: "https://www.youtube.com/watch?v=1XjgLKrb4_M",
-    review: "Il miglior punto di partenza per Unreal. Spiegazioni chiarissime e risultati visivi da tripla A.",
-    requirements: "PC Potente (Consigliata GPU dedicata RTX)",
-    pcLevel: "high"
-},
+        title: "UNITY 6 - Corso Completo - jbdtube",
+        engine: "unity",
+        desc: "Tutorial in italiano aggiornato a Unity 6 per creare un gioco completo.",
+        link: "https://www.youtube.com/watch?v=sgdvkpGGeOI&list=PLTZhWSINdiMyf8JWcoY3hr2j8k5p1WmqI",
+        review: "Spiegazioni in italiano chiare e passo dopo passo.",
+        requirements: "PC Medio (8GB RAM, Windows 10/11)",
+        pcLevel: "low"
+    },
+    {
+        title: "Unity Beginner/Intermediate 2026 - Code Monkey",
+        engine: "unity",
+        desc: "Oltre 10 ore di contenuti moderni sulle migliori pratiche di Unity.",
+        link: "https://youtu.be/AmGSEH7QcDg?si=ABUHRdoH_y4dreQX",
+        review: "Code Monkey è una garanzia per il codice pulito.",
+        requirements: "PC Medio (8GB RAM, i5 10th gen+)",
+        pcLevel: "low"
+    },
+
+    // --- UNREAL ENGINE ---
+    {
+        title: "UE5 Beginner Tutorial - Unreal Sensei",
+        engine: "unreal",
+        desc: "Impara Nanite, Lumen e la creazione di mondi realistici.",
+        link: "https://www.youtube.com/watch?v=1XjgLKrb4_M",
+        review: "Visivamente incredibile, insegna l'UE5 moderna.",
+        requirements: "PC Potente (SSD, 16GB RAM, GPU RTX 2060+)",
+        pcLevel: "high"
+    },
+    {
+        title: "Video Corso Unreal Engine 5 - jbdtube",
+        engine: "unreal",
+        desc: "Serie completa in italiano per chi vuole iniziare con Unreal Engine 5.",
+        link: "https://www.youtube.com/watch?v=mIicvmaKUQI&list=PLTZhWSINdiMzQcYWX_PaBnLyso24WrAOo",
+        review: "Ottima alternativa italiana per chi non mastica l'inglese.",
+        requirements: "PC Potente (GPU dedicata obbligatoria)",
+        pcLevel: "high"
+    },
+    {
+        title: "First Game in UE5 2024 - Gorka Games",
+        engine: "unreal",
+        desc: "Crea il tuo primo gioco completo in UE5 con logiche Blueprint.",
+        link: "https://youtu.be/zt13VcimeyI?si=mjcl-Ty0-vxiUU__",
+        review: "Molto pratico, ideale per chi vuole 'fare' subito.",
+        requirements: "PC Potente (8GB VRAM consigliata)",
+        pcLevel: "high"
+    },
+
+    // --- GODOT ---
     {
         title: "Godot Step-by-Step",
         engine: "godot",
-        desc: "Impara il motore open source più leggero e veloce.",
+        desc: "La guida ufficiale per il motore open source del momento.",
         link: "https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html",
-        review: "Ottimo se vuoi totale libertà e zero costi.",
-        requirements: "PC Base (Va su quasi tutto, anche portatili vecchi)",
+        review: "Leggerissimo, perfetto per il 2D e i Pixel Art.",
+        requirements: "PC Base (Gira anche su vecchi portatili)",
         pcLevel: "low"
+    },
+
+    // --- LINGUAGGI (CON REQUISITI AGGIORNATI) ---
+    {
+        title: "Corso C++ per Game Dev",
+        engine: "c++",
+        desc: "Le basi del C++ focalizzate sullo sviluppo software e gaming.",
+        link: "https://youtu.be/099mOfHMAM4?si=c2RAJYrRN5MvLMOm",
+        review: "Essenziale per chi punta a Unreal Engine o motori proprietari.",
+        requirements: "PC Base + Visual Studio 2022 o VS Code",
+        pcLevel: "low",
+    },
+    {
+        title: "Corso C# Moderno",
+        engine: "c#",
+        desc: "Impara il linguaggio principe di Unity e delle app .NET.",
+        link: "https://youtu.be/5OzKY_thSJU?si=XW6RP4Bnfqlg_Lqj",
+        review: "Ottimo per creare una base solida di logica di programmazione.",
+        requirements: "PC Base + VS Code o Visual Studio Community",
+        pcLevel: "low",
     }
 ];
 
@@ -56,14 +108,17 @@ function displayCourses(filter = 'tutti') {
         const pcClass = course.pcLevel === 'high' ? 'req-high' : 'req-low';
         container.innerHTML += `
             <div class="card">
-                <div style="color:var(--accent); font-weight:bold; font-size:0.8rem">${course.engine.toUpperCase()}</div>
+                <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; letter-spacing:1px">
+                    ${course.engine.toUpperCase()}
+                </div>
                 <h3>${course.title}</h3>
-                <p>${course.desc}</p>
+                <p style="font-size:0.9rem; color:#94a3b8; flex-grow:1">${course.desc}</p>
                 <div class="review-summary">
-                    <small>Sunto:</small> <em>"${course.review}"</em>
+                    <small style="color:var(--accent)">Opinione:</small><br>
+                    <em>"${course.review}"</em>
                 </div>
                 <div class="pc-requirements ${pcClass}">
-                    <strong>💻 Requisiti:</strong> ${course.requirements}
+                    <strong>💻 Software/PC:</strong> ${course.requirements}
                 </div>
                 <a href="${course.link}" target="_blank" class="btn-go">INIZIA ORA</a>
             </div>
@@ -71,24 +126,11 @@ function displayCourses(filter = 'tutti') {
     });
 }
 
-// Funzione per filtrare (ora aggiorna anche lo stile del bottone)
 function filterCourses(engine, btnElement) {
-    // Rimuove la classe active da tutti i bottoni
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    // Aggiunge la classe active al bottone cliccato
     btnElement.classList.add('active');
-    // Mostra i corsi
     displayCourses(engine);
 }
 
-function searchCourses() {
-    const term = document.getElementById('searchInput').value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        const title = card.querySelector('h3').innerText.toLowerCase();
-        card.style.display = title.includes(term) ? "block" : "none";
-    });
-}
-
-// Caricamento iniziale
+// Avvio automatico
 window.onload = () => displayCourses('tutti');
