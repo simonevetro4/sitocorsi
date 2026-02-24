@@ -98,33 +98,76 @@ const courses = [
     }
 ];
 
+// Funzione per mostrare i corsi
 function displayCourses(filter = 'tutti') {
     const container = document.getElementById('course-container');
     container.innerHTML = '';
 
     const filtered = filter === 'tutti' ? courses : courses.filter(c => c.engine === filter);
 
-    filtered.forEach(course => {
+    filtered.forEach((course, index) => {
         const pcClass = course.pcLevel === 'high' ? 'req-high' : 'req-low';
+        
+        // Controlliamo se il corso è salvato come completato nel localStorage
+        const isCompleted = localStorage.getItem(`course-${course.title}`) === 'true';
+        const completedClass = isCompleted ? 'completed' : '';
+
         container.innerHTML += `
-            <div class="card">
-                <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; letter-spacing:1px">
-                    ${course.engine.toUpperCase()}
+            <div class="card ${completedClass}" id="card-${index}">
+                <div class="card-header">
+                    <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; letter-spacing:1px">
+                        ${course.engine.toUpperCase()}
+                    </div>
+                    <label class="checkbox-container">
+                        <input type="checkbox" ${isCompleted ? 'checked' : ''} 
+                               onchange="toggleCompletion('${course.title}', ${index})">
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
+                
                 <h3>${course.title}</h3>
                 <p style="font-size:0.9rem; color:#94a3b8; flex-grow:1">${course.desc}</p>
+                
                 <div class="review-summary">
                     <small style="color:var(--accent)">Opinione:</small><br>
                     <em>"${course.review}"</em>
                 </div>
+                
                 <div class="pc-requirements ${pcClass}">
                     <strong>💻 Software/PC:</strong> ${course.requirements}
                 </div>
+                
                 <a href="${course.link}" target="_blank" class="btn-go">INIZIA ORA</a>
             </div>
         `;
     });
 }
+
+// Nuova funzione per gestire la spunta
+function toggleCompletion(courseTitle, cardIndex) {
+    const card = document.getElementById(`card-${cardIndex}`);
+    const key = `course-${courseTitle}`;
+    
+    if (localStorage.getItem(key) === 'true') {
+        localStorage.removeItem(key);
+        card.classList.remove('completed');
+    } else {
+        localStorage.setItem(key, 'true');
+        card.classList.add('completed');
+    }
+}
+function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').classList.remove('show');
+}
+
+window.addEventListener('load', () => {
+    if (!localStorage.getItem('cookieConsent')) {
+        setTimeout(() => {
+            document.getElementById('cookie-banner').classList.add('show');
+        }, 1500); // Sbuca dopo 1.5 secondi
+    }
+});
 
 function filterCourses(engine, btnElement) {
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));

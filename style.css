@@ -91,3 +91,137 @@ h1 { font-size: 3rem; font-weight: 900; line-height: 1; }
     border-radius: 10px;
     font-weight: bold;
 }
+/* Stile Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: -100%; /* Nascosto inizialmente sotto lo schermo */
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    border-top: 2px solid var(--accent);
+    padding: 20px 0;
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.5);
+    z-index: 9999;
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Stile Pop-up Cookie */
+.cookie-popup {
+    position: fixed;
+    bottom: 30px;
+    left: -400px; /* Parte fuori dallo schermo a sinistra */
+    width: 350px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    border-left: 5px solid var(--accent);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10000;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Classe per l'animazione di entrata */
+.cookie-popup.show {
+    left: 30px; /* Slitta dentro lo schermo */
+}
+
+.cookie-icon { font-size: 2rem; }
+
+.cookie-text h4 { margin: 0 0 5px 0; color: var(--accent); font-size: 1rem; }
+.cookie-text p { margin: 0; font-size: 0.85rem; color: #94a3b8; line-height: 1.4; }
+.cookie-text a { color: var(--accent); text-decoration: underline; }
+
+.cookie-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cookie-btn:hover { background: #7dd3fc; transform: scale(1.05); }
+
+/* Mobile */
+@media (max-width: 480px) {
+    .cookie-popup { width: calc(100% - 60px); left: -110%; }
+    .cookie-popup.show { left: 30px; }
+}
+
+/* Container per allineare Engine e Checkbox */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Effetto card completata */
+.card.completed {
+    opacity: 0.7;
+    border-color: var(--low-req) !important;
+    filter: grayscale(0.5);
+}
+
+/* Personalizzazione Checkbox (Stile Moderno) */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #334155;
+    border-radius: 4px;
+    border: 2px solid var(--accent);
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #475569;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--low-req);
+    border-color: var(--low-req);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
