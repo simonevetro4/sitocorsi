@@ -3,222 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Diario di Recensioni</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- DARK MODE PALETTE --- */
-        :root { 
-            --accento: #e74c3c; 
-            --sfondo-pagina: #121212; 
-            --sfondo-elementi: #1e1e1e;
-            --testo-principale: #e0e0e0;
-            --testo-secondario: #a0a0a0;
-            --bordo: #333333;
-        }
-        
-        body { font-family: 'Source Sans Pro', sans-serif; background: var(--sfondo-pagina); color: var(--testo-principale); margin: 0; }
-        
-        header { background: var(--sfondo-elementi); border-bottom: 3px solid var(--accento); padding: 30px; text-align: center; cursor: pointer; }
-        header h1 { font-family: 'Lora', serif; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: var(--testo-principale); }
-        header p { color: var(--testo-secondario); }
-
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; }
-
-        /* --- CARD --- */
-        .card { background: var(--sfondo-elementi); display: flex; margin-bottom: 25px; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: 0.3s; cursor: pointer; border: 1px solid var(--bordo); }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.8); border-color: var(--accento); }
-        .card img { width: 250px; height: 180px; object-fit: cover; }
-        .card-info { padding: 20px; }
-        .card-info h2 { font-family: 'Lora', serif; margin: 10px 0; font-size: 1.4rem; color: var(--testo-principale); }
-        .card-info p { color: var(--testo-secondario); }
-
-        /* --- ARTICOLO --- */
-        #article-view { background: var(--sfondo-elementi); padding: 40px; border-radius: 8px; display: none; border: 1px solid var(--bordo); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .btn-back { background: var(--accento); color: white; border: none; padding: 10px 20px; cursor: pointer; margin-bottom: 20px; border-radius: 4px; font-weight: bold; }
-        .btn-back:hover { background: #c0392b; }
-        .full-article img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
-        .full-article h1 { font-family: 'Lora', serif; font-size: 2.5rem; color: var(--testo-principale); margin-top: 10px; }
-        .full-article .content { font-size: 1.2rem; line-height: 1.8; margin-top: 20px; white-space: pre-line; color: var(--testo-principale); }
-
-        .rating { color: #f1c40f; font-size: 1.3rem; margin: 10px 0; }
-
-        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } .card { flex-direction: column; } .card img { width: 100%; } }
-      
-        /* --- SIDEBAR --- */
-        .sidebar-box { background: var(--sfondo-elementi); padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 1px solid var(--bordo); }
-        .sidebar-box h3 { border-bottom: 1px solid var(--bordo); padding-bottom: 10px; margin-top: 0; }
-        .sidebar-box hr { border: 0; border-top: 1px solid var(--bordo); margin: 20px 0; }
-        .sidebar-box p { color: var(--testo-secondario); }
-
-        .category-list { list-style: none; padding: 0; }
-        .category-item { padding: 10px; border-bottom: 1px solid var(--bordo); cursor: pointer; transition: 0.2s; font-weight: 600; display: flex; justify-content: space-between; color: var(--testo-principale); }
-        .category-item:hover { background-color: var(--accento); color: white; padding-left: 15px; border-color: transparent; }
-        .category-item span { background: var(--sfondo-pagina); color: var(--testo-secondario); padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; }
-        .category-item:hover span { background: white; color: var(--accento); }
-
-        .category-label { display: inline-block; color: var(--accento); text-transform: uppercase; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 5px; }
-
-        /* --- BARRA DI RICERCA --- */
-        .search-wrapper { display: flex; max-width: 700px; margin: 30px auto; background: var(--sfondo-elementi); border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border: 2px solid var(--bordo); transition: 0.3s; overflow: hidden; }
-        .search-wrapper:focus-within { border-color: var(--accento); box-shadow: 0 8px 25px rgba(231, 76, 60, 0.2); }
-        .search-wrapper select { border: none; background: var(--sfondo-elementi); padding: 15px 20px; font-size: 1rem; font-weight: bold; color: var(--testo-principale); cursor: pointer; outline: none; border-right: 1px solid var(--bordo); }
-        .search-wrapper input { flex-grow: 1; border: none; background: var(--sfondo-elementi); color: var(--testo-principale); padding: 15px 20px; font-size: 1.1rem; outline: none; }
-        .search-wrapper input::placeholder { color: var(--testo-secondario); }
-        .search-wrapper .search-btn { background: var(--accento); color: white; border: none; padding: 0 25px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; }
-        .search-wrapper .search-btn:hover { background: #c0392b; }
-    </style>
+    <title>GameDev Free Hub | Innovazione & Risorse</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <header onclick="tornaHome()">
-        <h1>DIARIO DI RECENSIONI</h1>
-        <p>Il mio spazio critico personale</p>
+<div id="cookie-banner" class="cookie-popup">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-text">
+        <h4>Amiamo i cookie (e i tutorial)</h4>
+        <p>
+            Usiamo i cookie di YouTube per farti vedere i video. 
+            Leggi la nostra <a href="policy.html">Privacy Policy</a>.
+        </p>
+    </div>
+    <div class="cookie-actions">
+        <button class="cookie-btn" onclick="acceptCookies()">Accetto</button>
+    </div>
+</div>
+    <div class="overlay-grid"></div>
+
+    <header>
+        <div class="logo">GAMEDEV<span>FREE</span>HUB</div>
+        <h1>L'Accademia per <br><span class="highlight">Creatori di Giochi</span></h1>
+        
+       
+
+        <nav class="filter-nav">
+            <button class="filter-btn active" onclick="filterCourses('tutti', this)">Tutti</button>
+            <button class="filter-btn" onclick="filterCourses('unity', this)">Unity</button>
+            <button class="filter-btn" onclick="filterCourses('unreal', this)">Unreal Engine</button>
+            <button class="filter-btn" onclick="filterCourses('godot', this)">Godot</button>
+            <button class="filter-btn" onclick="filterCourses('c#', this)">C#</button>
+            <button class="filter-btn" onclick="filterCourses('c++', this)">C++</button>
+            
+        </nav>
     </header>
-    
-    <div class="search-wrapper">
-        <select id="tipoFiltro" onchange="applicaFiltri()">
-            <option value="Tutti">Tutte le categorie</option>
-            <option value="Gioco">Giochi</option>
-            <option value="Film">Film</option>
-            <option value="Libro">Libri</option>
-        </select>
-        
-        <input type="text" id="searchBar" placeholder="Cerca una recensione..." onkeyup="applicaFiltri()">
-        
-        <button class="search-btn" onclick="applicaFiltri()">🔍</button>
-    </div>
 
-    <div class="container">
-        <main id="home-view">
-            <div id="lista-recensioni"></div>
+    <main id="course-container" class="grid">
         </main>
-            
-        <main id="article-view">
-            <button class="btn-back" onclick="tornaHome()">← Torna alla Home</button>
-            <div id="contenuto-articolo" class="full-article"></div>
-        </main>
-            
-        <aside id="sidebar">
-            <div class="sidebar-box">
-                <h3>Archivio Rubriche</h3>
-                <ul class="category-list">
-                    <li class="category-item" onclick="filtraCategoria('Tutte')">Tutte le recensioni</li>
-                    <li class="category-item" onclick="filtraCategoria('Retrocensione')">Retrocensioni</li>
-                    <li class="category-item" onclick="filtraCategoria('Recensione')">Ultime Uscite</li>
-                </ul>
-                <hr>
-                <h3>Chi sono</h3>
-                <p>Benvenuto nel mio diario digitale. Qui trovi opinioni sincere su videogiochi di ogni epoca.</p>
-            </div>
-        </aside>
-    </div>
 
-    <script>
-        const archivioRecensioni = [
-             {
-                id: 0,
-                titolo: "God of War II: L'Epopea che non accenna a sbiadire",
-                tipo: "Gioco",
-                categoria: "Retrocensione",
-                voto: "⭐⭐⭐⭐✨",
-                immagine: "GOW2.jpg", 
-                riassunto: "A quasi vent'anni dall'uscita, il viaggio di Kratos contro il Destino rimane un pezzo di storia che urla ancora a pieni polmoni.",
-                testoCompleto: "Rigiocare God of War II oggi è un’esperienza che scuote. Nonostante l’industria si sia spostata verso mondi aperti e narrazioni sussurrate, l’avventura di Kratos contro il Destino stesso rimane un pezzo di storia del gaming.\n\n**Un’epopea che non accenna a sbiadire**\nLa trama è ancora il punto forte. La scalata al Monte Olimpo e il tradimento di Zeus hanno una carica epica che pochi titoli moderni riescono a replicare con la stessa ferocia. Kratos non è un eroe, è una forza della natura.\n\n**Enigmi e Sangue: Il bilanciamento perfetto**\nHo trovato gli indovinelli ancora sorprendentemente freschi. Non sono rompicapi da mal di testa, ma sono ingegnosi e ben inseriti nel contesto. Spezzano il ritmo nel modo giusto tra un massacro e l’altro.\n\n**I segni del tempo: Camera e Ripetitività**\nCerto, non è tutto oro quello che luccica. Il limite più evidente è la telecamera fissa: in alcuni passaggi è davvero ostica. Inoltre, emerge una certa ripetitività nella struttura 'stanza-nemici-corridoio'.\n\n**Il Verdetto**\nGod of War II resta un capolavoro di design, un 'action puro' che ogni videogiocatore dovrebbe rigiocare almeno una volta. Nonostante qualche ruga tecnica, il carisma di Kratos lo rende ancora godibilissimo."
-            },
-        {
-                
-                id: 1,
-                titolo: "The Outer Worlds: Il fascino irresistibile dello Spazio Profondo",
-                tipo: "Gioco",
-                categoria: "Recensione",
-                voto: "⭐⭐⭐⭐☆",
-                immagine: "OIP.jpg", 
-                riassunto: "Mentre il mercato sforna mondi aperti sconfinati ma vuoti, The Outer Worlds ci ricorda quanto sia prezioso un level design denso e curato.",
-                testoCompleto: "Attualmente nel bel mezzo dell'esplorazione della colonia di Alcione (Halcyon), il verdetto parziale è chiaro: siamo di fronte a un Gioco di Ruolo con la G maiuscola, capace di catturare fin dai primi minuti.\n\n**La penna è più forte del fucile al plasma**\nIl vero, indiscutibile cuore pulsante di The Outer Worlds risiede nella sua scrittura. Le opzioni di dialogo sono innumerevoli, ma ciò che affascina è come queste non siano un semplice contorno estetico.\n\nAvere un punteggio alto in Persuasione, Menzogna o Intimidazione cambia letteralmente l'aspetto del gioco. Puoi risolvere conflitti mortali, far cadere governi locali o raggirare corporazioni spietate semplicemente scegliendo le parole giuste, permettendoti di completare intere missioni senza sparare un singolo colpo. È un livello di reattività del mondo di gioco che gratifica enormemente chi preferisce la diplomazia all'azione nuda e cruda.\n\n**Un'utopia (o distopia?) da cartolina**\nLe ambientazioni sono un vero spettacolo per gli occhi e per la mente. L'estetica retro-futuristica, a metà tra la fantascienza pulp degli anni '50 e l'art nouveau, rende ogni pianeta unico. Dai paesaggi selvaggi e letali di Monarch agli insediamenti asettici e oppressivi dominati dalle corporazioni, il mondo di gioco è affascinante e coerente. Questa direzione artistica così forte fa da palcoscenico a una storia coinvolgente, intrisa di umorismo nero e di una satira pungente sul capitalismo sfrenato.\n\n**💡 L'Angolo dell'Esperto: Le Radici del Successo**\nPer capire la magia dietro The Outer Worlds, bisogna guardare ai suoi creatori. Il gioco è sviluppato da Obsidian Entertainment e diretto da due leggende del settore: Tim Cain e Leonard Boyarsky.\n\nSe questi nomi vi dicono qualcosa, è perché sono i creatori originali della storica saga di Fallout (1997). The Outer Worlds è nato proprio con l'intento esplicito di essere il \"successore spirituale\" di titoli amatissimi come Fallout: New Vegas (sempre di Obsidian), riprendendone l'anima ruolistica e la libertà di scelta, ma portandole tra le stelle.\n\n**Il Verdetto (In corso d'opera)**\nIn attesa dei titoli di coda, The Outer Worlds si conferma un'avventura densa, brillante e incredibilmente reattiva alle scelte del giocatore. Un must per chi cerca una narrazione solida in cui il proprio personaggio è davvero l'artefice del proprio destino."
-            },
-        ];
-
-        function renderizzaHome(listaDaMostrare = archivioRecensioni) {
-            const contenitore = document.getElementById('lista-recensioni');
-            contenitore.innerHTML = ''; 
-            
-            if (listaDaMostrare.length === 0) {
-                contenitore.innerHTML = '<p style="color: var(--testo-secondario);">Nessuna recensione trovata.</p>';
-                return;
-            }
-            
-            listaDaMostrare.forEach(rec => {
-                const cardHTML = `
-                <article class="card" onclick="apriRecensione(${rec.id})">
-                    <img src="${rec.immagine}" alt="${rec.titolo}">
-                    <div class="card-info">
-                        <small class="category-label">${rec.categoria}</small>
-                        <h2>${rec.titolo}</h2>
-                        <p>${rec.riassunto}</p>
-                        <div class="rating">${rec.voto}</div>
-                    </div>
-                </article>
-                `;
-                contenitore.innerHTML += cardHTML;
-            });
-        }
-
-        function applicaFiltri() {
-            tornaHome();
-            const testoCercato = document.getElementById('searchBar').value.toLowerCase();
-            const tipoSelezionato = document.getElementById('tipoFiltro').value;
-
-            const filtrati = archivioRecensioni.filter(rec => {
-                const passaTesto = rec.titolo.toLowerCase().includes(testoCercato);
-                const passaTipo = (tipoSelezionato === 'Tutti') || (rec.tipo === tipoSelezionato);
-                return passaTesto && passaTipo;
-            });
-
-            renderizzaHome(filtrati);
-        }
-
-        function filtraCategoria(categoriaScelta) {
-            tornaHome();
-            document.getElementById('searchBar').value = '';
-            document.getElementById('tipoFiltro').value = 'Tutti';
-
-            if (categoriaScelta === 'Tutte') {
-                renderizzaHome(archivioRecensioni);
-            } else {
-                const filtrati = archivioRecensioni.filter(r => r.categoria === categoriaScelta);
-                renderizzaHome(filtrati);
-            }
-        }
-
-function apriRecensione(id) {
-            const rec = archivioRecensioni.find(r => r.id === id);
-        
-            const testoFormattato = rec.testoCompleto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('sidebar').style.display = 'none';
-            document.querySelector('.search-wrapper').style.display = 'none';
-            document.getElementById('article-view').style.display = 'block';
-            
-            document.getElementById('contenuto-articolo').innerHTML = `
-            <span class="category-label">${rec.categoria}</span>
-            <h1>${rec.titolo}</h1>
-            <div class="rating">${rec.voto}</div>
-            <img src="${rec.immagine}" alt="${rec.titolo}">
-            <div class="content">${testoFormattato}</div>
-            `;
-            window.scrollTo(0,0);
-        }
-
-        function tornaHome() {
-            document.getElementById('home-view').style.display = 'block';
-            document.getElementById('sidebar').style.display = 'block';
-            document.querySelector('.search-wrapper').style.display = 'flex';
-            document.getElementById('article-view').style.display = 'none';
-        }
-
-        renderizzaHome();
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
