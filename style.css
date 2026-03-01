@@ -1,227 +1,114 @@
-:root {
-    --bg: #05070a;
-    --surface: #0f121a;
-    --accent: #00f3ff;
-    --accent-vibe: #bc13fe;
-    --text: #ffffff;
-    --text-dim: #94a3b8;
-    --low-pc: #4ade80; /* Verde per PC leggeri */
-    --high-pc: #f87171; /* Rosso per PC potenti */
-}
+  /* --- CSS: L'ESTETICA DEL SITO --- */
+        :root {
+            --colore-accento: #e74c3c; /* Rosso per le categorie */
+            --sfondo: #f9f9f9;
+            --testo: #2c3e50;
+        }
 
-body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-}
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--sfondo);
+            color: var(--testo);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-.overlay-grid {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    z-index: -1;
-}
+        header {
+            background: white;
+            border-bottom: 3px solid black;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-header { padding: 50px 20px; text-align: center; }
+        header h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
 
-h1 { font-size: 3rem; font-weight: 900; line-height: 1; }
-.highlight { background: linear-gradient(90deg, var(--accent), var(--accent-vibe)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav {
+            margin-top: 10px;
+        }
 
-.filter-nav { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
-.filter-btn {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
 
-/* Questa è la classe che mancava per far vedere il tasto cliccato */
-.filter-btn.active {
-    background: var(--accent);
-    color: var(--bg);
-    box-shadow: 0 0 15px var(--accent);
-    border-color: var(--accent);
-}
+        /* --- IL LAYOUT A GRIGLIA --- */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 300px; /* Contenuto largo, Sidebar stretta */
+            gap: 40px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-    padding: 40px;
-}
+        /* --- STILE DELLE CARD --- */
+        .card {
+            background: white;
+            display: flex; /* Mette immagine a sinistra e testo a destra */
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
 
-.card {
-    background: var(--surface);
-    border: 1px solid rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 20px;
-    transition: 0.4s;
-    animation: fadeIn 0.5s ease forwards;
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
 
-.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .card-content {
+            padding: 20px;
+        }
 
-.pc-requirements {
-    font-size: 0.8rem;
-    margin-top: 15px;
-    padding: 8px;
-    border-radius: 8px;
-    background: rgba(0,0,0,0.3);
-}
+        .category {
+            color: var(--colore-accento);
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
 
-.req-low { color: var(--low-pc); border-left: 3px solid var(--low-pc); }
-.req-high { color: var(--high-pc); border-left: 3px solid var(--high-pc); }
+        .card h2 {
+            font-family: 'Lora', serif;
+            margin: 10px 0;
+        }
 
-.btn-go {
-    display: block;
-    margin-top: 20px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-vibe));
-    color: white;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-}
-/* Stile Cookie Banner */
-.cookie-banner {
-    position: fixed;
-    bottom: -100%; /* Nascosto inizialmente sotto lo schermo */
-    left: 0;
-    width: 100%;
-    background: var(--card-bg);
-    border-top: 2px solid var(--accent);
-    padding: 20px 0;
-    box-shadow: 0 -10px 25px rgba(0,0,0,0.5);
-    z-index: 9999;
-    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+        .rating {
+            color: #f1c40f;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
 
-/* Stile Pop-up Cookie */
-.cookie-popup {
-    position: fixed;
-    bottom: 30px;
-    left: -400px; /* Parte fuori dallo schermo a sinistra */
-    width: 350px;
-    background: var(--card-bg);
-    border: 1px solid var(--accent);
-    border-left: 5px solid var(--accent);
-    padding: 20px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    z-index: 10000;
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+        /* --- SIDEBAR --- */
+        .sidebar {
+            background: #eee;
+            padding: 20px;
+            border-radius: 4px;
+            height: fit-content;
+        }
 
-/* Classe per l'animazione di entrata */
-.cookie-popup.show {
-    left: 30px; /* Slitta dentro lo schermo */
-}
+        .sidebar h3 {
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
 
-.cookie-icon { font-size: 2rem; }
-
-.cookie-text h4 { margin: 0 0 5px 0; color: var(--accent); font-size: 1rem; }
-.cookie-text p { margin: 0; font-size: 0.85rem; color: #94a3b8; line-height: 1.4; }
-.cookie-text a { color: var(--accent); text-decoration: underline; }
-
-.cookie-btn {
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.cookie-btn:hover { background: #7dd3fc; transform: scale(1.05); }
-
-/* Mobile */
-@media (max-width: 480px) {
-    .cookie-popup { width: calc(100% - 60px); left: -110%; }
-    .cookie-popup.show { left: 30px; }
-}
-
-/* Container per allineare Engine e Checkbox */
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Effetto card completata */
-.card.completed {
-    opacity: 0.7;
-    border-color: var(--low-req) !important;
-    filter: grayscale(0.5);
-}
-
-/* Personalizzazione Checkbox (Stile Moderno) */
-.checkbox-container {
-    display: block;
-    position: relative;
-    padding-left: 25px;
-    cursor: pointer;
-    font-size: 18px;
-    user-select: none;
-}
-
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #334155;
-    border-radius: 4px;
-    border: 2px solid var(--accent);
-}
-
-.checkbox-container:hover input ~ .checkmark {
-    background-color: #475569;
-}
-
-.checkbox-container input:checked ~ .checkmark {
-    background-color: var(--low-req);
-    border-color: var(--low-req);
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.checkbox-container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.checkbox-container .checkmark:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
+        /* Responsive: se lo schermo è piccolo, metti tutto in colonna */
+        @media (max-width: 800px) {
+            .main-container { grid-template-columns: 1fr; }
+            .card { flex-direction: column; }
+            .card img { width: 100%; }
+        }
